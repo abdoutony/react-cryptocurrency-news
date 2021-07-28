@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-cryptocurrency-news/static/css/main.dc974e01.chunk.css",
-    "main.js": "/react-cryptocurrency-news/static/js/main.45e427eb.chunk.js",
-    "main.js.map": "/react-cryptocurrency-news/static/js/main.45e427eb.chunk.js.map",
+    "main.js": "/react-cryptocurrency-news/static/js/main.b8cb67e9.chunk.js",
+    "main.js.map": "/react-cryptocurrency-news/static/js/main.b8cb67e9.chunk.js.map",
     "runtime-main.js": "/react-cryptocurrency-news/static/js/runtime-main.94a9aeb6.js",
     "runtime-main.js.map": "/react-cryptocurrency-news/static/js/runtime-main.94a9aeb6.js.map",
     "static/css/2.4be38407.chunk.css": "/react-cryptocurrency-news/static/css/2.4be38407.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.4be38407.chunk.css",
     "static/js/2.789ebf37.chunk.js",
     "static/css/main.dc974e01.chunk.css",
-    "static/js/main.45e427eb.chunk.js"
+    "static/js/main.b8cb67e9.chunk.js"
   ]
 }
