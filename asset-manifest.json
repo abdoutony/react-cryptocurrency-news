@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react-cryptocurrency-news/static/css/main.dc974e01.chunk.css",
+    "main.js": "/react-cryptocurrency-news/static/js/main.45e427eb.chunk.js",
+    "main.js.map": "/react-cryptocurrency-news/static/js/main.45e427eb.chunk.js.map",
+    "runtime-main.js": "/react-cryptocurrency-news/static/js/runtime-main.94a9aeb6.js",
+    "runtime-main.js.map": "/react-cryptocurrency-news/static/js/runtime-main.94a9aeb6.js.map",
+    "static/css/2.4be38407.chunk.css": "/react-cryptocurrency-news/static/css/2.4be38407.chunk.css",
+    "static/js/2.789ebf37.chunk.js": "/react-cryptocurrency-news/static/js/2.789ebf37.chunk.js",
+    "static/js/2.789ebf37.chunk.js.map": "/react-cryptocurrency-news/static/js/2.789ebf37.chunk.js.map",
+    "index.html": "/react-cryptocurrency-news/index.html",
+    "static/css/2.4be38407.chunk.css.map": "/react-cryptocurrency-news/static/css/2.4be38407.chunk.css.map",
+    "static/css/main.dc974e01.chunk.css.map": "/react-cryptocurrency-news/static/css/main.dc974e01.chunk.css.map",
+    "static/js/2.789ebf37.chunk.js.LICENSE.txt": "/react-cryptocurrency-news/static/js/2.789ebf37.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/react-cryptocurrency-news/static/media/btcbg.2ffe82e8.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.94a9aeb6.js",
+    "static/css/2.4be38407.chunk.css",
+    "static/js/2.789ebf37.chunk.js",
+    "static/css/main.dc974e01.chunk.css",
+    "static/js/main.45e427eb.chunk.js"
+  ]
+}
