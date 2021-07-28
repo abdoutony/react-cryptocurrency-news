@@ -11,7 +11,7 @@ function App() {
  
   return (
     <div className="App">
-       <Router>
+       <Router basename={'/react-cryptocurrency-news/'}>
          <Route path='/' exact render={(props)=> <Main />} />
          <Route path='/currency/:id'  render={(props)=> <Currency />} />
        </Router>
