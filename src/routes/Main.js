@@ -1,28 +1,42 @@
 import React , {useEffect,useState} from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-//import ReactPaginate from 'react-paginate';
+import {Pagination} from '../utils/Pagination.js';
+import NumberFormat from 'react-number-format';
+
 export  function Main() {
        const [cryptoList,setCryptoList] = useState([])
+       const [loading,setLoading] = useState(false);
+       const [currentPage,setCurrentPage] = useState(1);
+       const [postsPerPage,setPostsPerPage] = useState(12);
+
         useEffect(()=>{
-        axios.get('https://api.coinlore.net/api/tickers/?start=200&limit=100')
+        setLoading(true);
+
+        axios.get('https://api.coinlore.net/api/tickers/')
         .then((response)=>{
             setCryptoList(response.data['data'])
             console.log(response.data['data'])
+            setLoading(false)
         })
+
         },[]);
 
-        // handlePageClick = (data) => {
-        //     let selected = data.selected;
-        //     let offset = Math.ceil(selected * this.props.perPage);
+       
 
-        //     this.setState({ offset: offset }, () => {
-        //     this.loadCommentsFromServer();
-        //     });
-        // };
+        
+
+        
+
+        const indexOfLastPost = currentPage * postsPerPage;
+        const indexOfFirstPost = indexOfLastPost - postsPerPage;
+        const currentPosts = cryptoList.slice(indexOfFirstPost,indexOfLastPost);
+        const paginate = (pageNumber) =>{ 
+            setCurrentPage(pageNumber)
+        
+        }
 
         let history = useHistory();
-        
     return (
         <div>
            <div className="Header container">
@@ -35,32 +49,24 @@ export  function Main() {
                  <div className="cryptoList row d--f  ">
 
                     {
-                 cryptoList.map((coin)=>{
+                 currentPosts.map((coin)=>{
                    return (
                       <div className="card col-md-4 mt-4 ml-5 mr-5" 
                       style={{width:'20rem',marginLeft:'15px',marginRight:'15px'}}
                       onClick={()=>{history.push(`/currency/${coin.id}`)}}>
                         <div className="card-body">
                               <h5 class="card-title">{coin.symbol}</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">{coin.price_usd}</h6>
+                              <h6 class="card-subtitle mb-2 text-muted">
+                              <NumberFormat value={coin.price_usd} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                              </h6>
                         </div>
                       </div>
                      );
                     })
                     }
-
-                    {/* <ReactPaginate
-                    previousLabel={'previous'}
-                    nextLabel={'next'}
-                    breakLabel={'...'}
-                    breakClassName={'break-me'}
-                    pageCount={5}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={this.handlePageClick}
-                    containerClassName={'pagination'}
-                    activeClassName={'active'}
-                    /> */}
+                    <div className='mt-4' style={{marginBottom:'25px'}}></div>
+                    <Pagination postsPerPage ={postsPerPage} totalPosts = {cryptoList.length} 
+                    paginate ={paginate} />
 
                  
              </div>

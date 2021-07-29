@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import NumberFormat from 'react-number-format';
 
 export  function Currency() {
     let {id} = useParams();
@@ -47,22 +48,7 @@ export  function Currency() {
           )
         })
     }, [])
-    // {id:"",
-    // symbol:"",
-    // name:"",
-    // nameid:"",
-    // rank:0,
-    // price_usd:"",
-    // percent_change_24h:"",
-    // percent_change_1h:"",
-    // percent_change_7d:"",
-    // price_btc:"",
-    // market_cap_usd:"",
-    // volume24:0,
-    // volume24a:0,
-    // csupply:"",
-    // tsupply:"",
-    // msupply:""}
+
     return (
         <div>
            <div className="Header container">
@@ -80,17 +66,35 @@ export  function Currency() {
                               <h5 class="card-title">Name : {coin.name}</h5>
                               <h5 class="card-title">NameID : {coin.nameid}</h5>
                               <h5 class="card-title">Rank : {coin.rank}</h5>
-                              <h5 class="card-title">Price Usd : {coin.price_usd}</h5>
-                              <h5 class="card-title">Percent Change_24h : {coin.percent_change_24h}</h5>
-                              <h5 class="card-title">Percent Change_1h : {coin.percent_change_1h}</h5>
-                              <h5 class="card-title">Percent Change_7d : {coin.percent_change_7d}</h5>
-                              <h5 class="card-title">Price Btc : {coin.price_btn}</h5>
-                              <h5 class="card-title">Market cap_usd : {coin.market_cap_usd}</h5>
-                              <h5 class="card-title">volume24 : {coin.volume24}</h5>
-                              <h5 class="card-title">volume24a : {coin.volume24a}</h5>
-                              <h5 class="card-title">csupply : {coin.csupply}</h5>
-                              <h5 class="card-title">tsupply : {coin.tsupply}</h5>
-                              <h5 class="card-title">msupply : {coin.msupply}</h5>
+                              <h5 class="card-title">Price Usd :
+                              <NumberFormat value={coin.price_usd} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                              </h5>
+                              <h5 class="card-title">Percent Change_24h : {coin.percent_change_24h} %</h5>
+                              <h5 class="card-title">Percent Change_1h : {coin.percent_change_1h} %</h5>
+                              <h5 class="card-title">Percent Change_7d : {coin.percent_change_7d} %</h5>
+                              <h5 class="card-title">Price Btc : 
+                              <NumberFormat value={coin.price_btc} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                             
+                              </h5>
+                              <h5 class="card-title">Market cap_usd :
+                              <NumberFormat value={coin.market_cap_usd} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                               B
+                              </h5>
+                              <h5 class="card-title">volume24 :
+                              <NumberFormat value={coin.volume24} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                              </h5>
+                              <h5 class="card-title">volume24a : 
+                              <NumberFormat value={coin.volume24a} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                              </h5>
+                              <h5 class="card-title">csupply :
+                              <NumberFormat value={coin.csupply} displayType={'text'} thousandSeparator={true}/>
+                              </h5>
+                              <h5 class="card-title">tsupply : 
+                              <NumberFormat value={coin.tsupply} displayType={'text'} thousandSeparator={true}/>
+                              </h5>
+                              <h5 class="card-title">msupply :
+                              <NumberFormat value={coin.msupply} displayType={'text'} thousandSeparator={true}/>
+                              </h5>
                         </div>
                 </div>
              </div>

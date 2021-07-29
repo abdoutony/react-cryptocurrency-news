@@ -1,5 +1,5 @@
 {
-  "homepage":"http://abdoutony.github.io/react-cryptocurrency-news",
+  "homepage": "http://abdoutony.github.io/react-cryptocurrency-news",
   "name": "cryotocurrency-app",
   "version": "0.1.0",
   "private": true,
@@ -11,6 +11,7 @@
     "bootstrap": "^5.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-number-format": "^4.6.4",
     "react-paginate": "^7.1.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
