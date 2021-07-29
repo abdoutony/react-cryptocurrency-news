@@ -5,14 +5,11 @@ import {Pagination} from '../utils/Pagination.js';
 import NumberFormat from 'react-number-format';
 
 export  function Main() {
-       const [cryptoList,setCryptoList] = useState([])
-       const [loading,setLoading] = useState(false);
-       const [currentPage,setCurrentPage] = useState(1);
-       const [postsPerPage,setPostsPerPage] = useState(12);
-
+       
+       const [cryptoList,setCryptoList] = useState([]) // DECLARING THE STATE WHERE WE STORE THE DATA
+      
         useEffect(()=>{
-        setLoading(true);
-
+        // GETTING THE DATA
         axios.get('https://api.coinlore.net/api/tickers/')
         .then((response)=>{
             setCryptoList(response.data['data'])
@@ -22,12 +19,10 @@ export  function Main() {
 
         },[]);
 
-       
-
-        
-
-        
-
+    
+        // DECLARING THE STATES NEEDED FOR THE PAGINATION
+        const [currentPage,setCurrentPage] = useState(1);
+        const [postsPerPage,setPostsPerPage] = useState(12);
         const indexOfLastPost = currentPage * postsPerPage;
         const indexOfFirstPost = indexOfLastPost - postsPerPage;
         const currentPosts = cryptoList.slice(indexOfFirstPost,indexOfLastPost);
@@ -49,13 +44,14 @@ export  function Main() {
                  <div className="cryptoList row d--f  ">
 
                     {
+                   // DISPLAYING THE LIST OF THE COINS 
                  currentPosts.map((coin)=>{
                    return (
                       <div className="card col-md-4 mt-4 ml-5 mr-5" 
                       style={{width:'20rem',marginLeft:'15px',marginRight:'15px'}}
                       onClick={()=>{history.push(`/currency/${coin.id}`)}}>
                         <div className="card-body">
-                              <h5 class="card-title">{coin.symbol}</h5>
+                              <h5 class="card-title">{coin.name}</h5>
                               <h6 class="card-subtitle mb-2 text-muted">
                               <NumberFormat value={coin.price_usd} displayType={'text'} thousandSeparator={true} prefix={'$'} />
                               </h6>
@@ -67,8 +63,6 @@ export  function Main() {
                     <div className='mt-4' style={{marginBottom:'25px'}}></div>
                     <Pagination postsPerPage ={postsPerPage} totalPosts = {cryptoList.length} 
                     paginate ={paginate} />
-
-                 
              </div>
              </div>
           </div>

@@ -5,9 +5,10 @@ import { useHistory } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
 
 export  function Currency() {
-    let {id} = useParams();
-    let history = useHistory();
-    const [coin,setCoin] = useState(
+    let {id} = useParams(); // THE ID WE NEED TO SHOW THE DETAILS OF A COIN
+    let history = useHistory();  
+    const [coin,setCoin] = useState(  
+     // DECLARING THE OBJECT WHERE WE STORE THE DATA OF A SELECTED COIN
     {id:"",
     symbol:"",
     name:"",
@@ -26,6 +27,7 @@ export  function Currency() {
     msupply:""}
     )
     useEffect(() => {
+        // GETTING THE DATA AND STORE IN THE OBJECT 
         axios.get(`https://api.coinlore.net/api/ticker/?id=${id}`)
         .then((coin)=>{
           setCoin(
@@ -62,38 +64,83 @@ export  function Currency() {
              <div className="row d--f jc--c" style={{paddingBottom:"50px"}}>
                <div className="card col-md-5 mt-4" style={{paddingBottom:"50px"}}>
                         <div className="card-body">
-                              <h5 class="card-title">Symbol : {coin.symbol}</h5>
-                              <h5 class="card-title">Name : {coin.name}</h5>
-                              <h5 class="card-title">NameID : {coin.nameid}</h5>
-                              <h5 class="card-title">Rank : {coin.rank}</h5>
-                              <h5 class="card-title">Price Usd :
-                              <NumberFormat value={coin.price_usd} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                              {/* DISPLAYING THE DATA OF THE COIN */}
+                              <h5 class="card-title">
+                                  <b>Symbol : </b>
+                                  <span className="text-muted">{coin.symbol}</span>
+                               </h5>
+                              <h5 class="card-title">
+                                  <b>Name : </b>
+                                  <span className="text-muted">{coin.name}</span>
                               </h5>
-                              <h5 class="card-title">Percent Change_24h : {coin.percent_change_24h} %</h5>
-                              <h5 class="card-title">Percent Change_1h : {coin.percent_change_1h} %</h5>
-                              <h5 class="card-title">Percent Change_7d : {coin.percent_change_7d} %</h5>
-                              <h5 class="card-title">Price Btc : 
-                              <NumberFormat value={coin.price_btc} displayType={'text'} thousandSeparator={true} prefix={'$'} />
-                             
+                              <h5 class="card-title">
+                                  <b>NameID : </b>
+                                  <span className="text-muted">{coin.nameid}</span>
                               </h5>
-                              <h5 class="card-title">Market cap_usd :
-                              <NumberFormat value={coin.market_cap_usd} displayType={'text'} thousandSeparator={true} prefix={'$'} />
-                               B
+                              <h5 class="card-title">
+                                  <b>Rank : </b>
+                                  <span className="text-muted">{coin.rank}</span>
                               </h5>
-                              <h5 class="card-title">volume24 :
-                              <NumberFormat value={coin.volume24} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                              <h5 class="card-title">
+                                <b>Price Usd : </b>
+                                <span className="text-muted">
+                                    <NumberFormat value={coin.price_usd} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                                </span>
                               </h5>
-                              <h5 class="card-title">volume24a : 
-                              <NumberFormat value={coin.volume24a} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                              <h5 class="card-title">
+                                  <b>Percent Change_24h : </b>
+                                   <span className="text-muted">{coin.percent_change_24h} %</span>
                               </h5>
-                              <h5 class="card-title">csupply :
-                              <NumberFormat value={coin.csupply} displayType={'text'} thousandSeparator={true}/>
+                              <h5 class="card-title">
+                                  <b>Percent Change_1h : </b>
+                                  <span className="text-muted">{coin.percent_change_1h} %</span>
                               </h5>
-                              <h5 class="card-title">tsupply : 
-                              <NumberFormat value={coin.tsupply} displayType={'text'} thousandSeparator={true}/>
+                              <h5 class="card-title">
+                                  <b>Percent Change_7d : </b> 
+                                  <span className="text-muted">{coin.percent_change_7d} %</span>
                               </h5>
-                              <h5 class="card-title">msupply :
-                              <NumberFormat value={coin.msupply} displayType={'text'} thousandSeparator={true}/>
+                              <h5 class="card-title">
+                                <b>Price Btc : </b> 
+                                <span className="text-muted">
+                                    <NumberFormat value={coin.price_btc} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                                </span>
+                              </h5>
+                              <h5 class="card-title">
+                                <b>Market Cap Usd : </b>
+                                <span className="text-muted">
+                                    <NumberFormat value={coin.market_cap_usd} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                                    B
+                                </span>
+                              </h5>
+                              <h5 class="card-title">
+                                <b>Volume24 : </b>
+                                <span className="text-muted">
+                                    <NumberFormat value={coin.volume24} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                                </span>
+                              </h5>
+                              <h5 class="card-title">
+                                <b>Volume24a : </b>
+                                <span className="text-muted">
+                                    <NumberFormat value={coin.volume24a} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                                </span>
+                              </h5>
+                              <h5 class="card-title">
+                                <b>Csupply : </b>
+                                <span className="text-muted">
+                                    <NumberFormat value={coin.csupply} displayType={'text'} thousandSeparator={true}/>
+                                </span>
+                              </h5>
+                              <h5 class="card-title">
+                                <b>Tsupply : </b> 
+                                <span className="text-muted">
+                                    <NumberFormat value={coin.tsupply} displayType={'text'} thousandSeparator={true}/>
+                                </span>
+                              </h5>
+                              <h5 class="card-title">
+                                <b>Msupply : </b>
+                                <span className="text-muted">
+                                    <NumberFormat value={coin.msupply} displayType={'text'} thousandSeparator={true}/>
+                                </span>
                               </h5>
                         </div>
                 </div>
