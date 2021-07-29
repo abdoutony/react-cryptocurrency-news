@@ -14,7 +14,7 @@ export  function Main() {
         .then((response)=>{
             setCryptoList(response.data['data'])
             console.log(response.data['data'])
-            setLoading(false)
+            
         })
 
         },[]);
